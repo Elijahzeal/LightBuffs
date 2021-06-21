@@ -1,0 +1,13 @@
+command /phantomprotection:
+    aliases: pp
+    permission: phantomprotection.use
+    permission message: &cYou don't have permission.
+    trigger:
+        if {phantomprotection.mode.%player%} is "False":
+            message "{@Prefix} &7You have enabled Phantom Protection!"
+            set {phantomprotection.mode.%player%} to "True"
+            kill phantom near the player every 60 seconds
+        else:
+            if {phantomprotection.mode.%player%} is "True":
+                message "{@Prefix} &cYou have disabled Phantom Protection!"
+                set {phantomprotection.mode.%player%} to "False"
